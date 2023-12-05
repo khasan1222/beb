@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title >Dubai</title>
+
+<style>
+
+body
+{
+    background-image: url('dubai.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+button
+{
+    color: green;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+    cursor: hand;
+}
+.center
+{
+    text-align:center;
+}
+
+.smaller-img
+{
+    width: 400px;
+    height: auto;
+}
+
+img
+{
+    opacity:  0.5;
+}
+
+
+
+</style>
+
+<script>
+//https://pixabay.com/sound-effects/search/lion/
+function roar()
+{
+    document.getElementById("cat2").src = "cat-red.png";
+
+    setTimeout(function() {
+        document.getElementById("cat2").src = "cat.png";
+    }, 3000);
+
+    var roar = new Audio('roar.mp3').play();
+    
+}
+
+/* proper way of doing it
+audioElement.addEventListener(
+  "ended",
+  () => {
+    playButton.dataset.playing = "false";
+  },
+  false,
+);
+*/
+
+function loadBackground(loc)
+{
+    var body = document.getElementById("main");
+    body.style.backgroundImage = "url('" + loc + ".jpg')";
+    document.getElementById("location").innerHTML = loc;
+    document.title = loc;
+
+}
+
+</script>
+
+</head>
+<body id="main">
+
+<h1 class="center">My trip to <span id="location">Dubai</span></h1>
+
+<audio id="test_sound" scr="roar.mp3"></audio>
+
+<div class="center">
+    <img id="cat2" src="cat.png" class="smaller-img">
+</div>
+
+<button onclick="loadBackground('dubai')">Dubai</button>
+<button onclick="loadBackground('florida')">Florida</button>
+<button onclick="loadBackground('alaska')">Alaska</button>
+<button onclick="loadBackground('frannce')">Frannce</button>
+<button onclick="roar();test_sound.play();">Miaow</button>
+<button onclick="loadBackground('rotex')">Karting</button>
+</body>
+</html>
